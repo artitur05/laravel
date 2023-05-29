@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PostRequest;
-use App\Models\Post;
+use App\Http\Requests\CategoryReqest;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -11,44 +11,44 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $posts = Post::all();
-        return view('admin.posts.index', [
-            'posts' => $posts
+        $categories = Category::all();
+        return view('admin.categories.index', [
+            'categories' => $categories
         ]);
     }
 
     public function edit(string $id)
     {
-        $post = Post::query()->where('id', $id)->firstOrFail();
-        return view('admin.posts.edit',['post' => $post]);
+        $categories = Category::query()->where('id', $id)->firstOrFail();
+        return view('admin.categories.edit',['category' => $categories]);
     }
 
     public function create()
     {
-        return view('admin.posts.create');
+        return view('admin.categories.create');
     }
 
-    public function store(PostRequest $request)
+    public function store(CategoryReqest $request)
     {
         $data = $request->all();
-        Post::query()->create($data);
+        Category::query()->create($data);
 
-        return redirect()->route('admin.posts.index')->with('Успешно, ','Статья создана');
+        return redirect()->route('admin.categories.index')->with('Успешно, ','Категория создана');
     }
 
-    public function update(PostRequest $request, Post $post)
+    public function update(CategoryReqest $request, Category $category)
     {
         $data = $request->all();
-        $post->update($data);
+        $category->update($data);
 
-        return redirect()->route('admin.posts.index')->with('Статья обновлена');
+        return redirect()->route('admin.categories.index')->with('Категория обновлена');
     }
 
-    public function destroy(Post $post)
+    public function destroy(Category $category)
     {
-        $post->delete();
+        $category->delete();
 
-        return redirect()->route('admin.posts.index')
-            ->with('Статья удалена');
+        return redirect()->route('admin.categories.index')
+            ->with('Категория удалена');
     }
 }

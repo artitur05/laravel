@@ -14,7 +14,9 @@ class Post extends Model
         'title',
         'content',
         'user_id',
+        'category_id',
         'is_visible',
         'published_at',
+
     ];
 }

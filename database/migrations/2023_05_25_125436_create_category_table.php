@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->string('title')->comment('Название категории');
 
-
+            $table->timestamps();
             $table->softDeletes();
         });
     }

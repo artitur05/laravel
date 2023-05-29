@@ -12,19 +12,10 @@
 <div class="menu" style="background-color: #a0c3fd; padding: 15px">
     <ul style="display: flex; list-style-type: none; justify-content: space-around">
         <li class="block font-medium text-sm text-gray-700">
-            <a href="">Пункт меню 1</a>
+            <a href="posts/">Главная</a>
         </li>
         <li class="block font-medium text-sm text-gray-700">
-            <a href="">Пункт меню 2</a>
-        </li>
-        <li class="block font-medium text-sm text-gray-700">
-            <a href="">Пункт меню 3</a>
-        </li>
-        <li class="block font-medium text-sm text-gray-700">
-            <a href="">Пункт меню 4</a>
-        </li>
-        <li class="block font-medium text-sm text-gray-700">
-            <a href="">Пункт меню 5</a>
+            <a href="categories">Все категории</a>
         </li>
     </ul>
 </div>
