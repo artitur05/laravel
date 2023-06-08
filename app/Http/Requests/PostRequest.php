@@ -28,6 +28,7 @@ class PostRequest extends FormRequest
             'category_id' => ['exists:categories,id','int'],
             'is_visible' => ['bool'],
             'published_at' => ['date'],
+            'image' => ['image', 'mimes:jpg,jpeg,png,bmp,gif,svg']
        ];
     }
 }

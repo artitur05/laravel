@@ -2,7 +2,36 @@
 
 @section('content')
 
+    <div>
+<form method="get" class="flex" action="{{ route('admin.posts.index') }}">
+    <label>
+        <select
+
+            name="category_id"
+            class="border-gray-300 rounded-md shadow-sm block mt-1 w-1/4">
+            <option selected disabled hidden></option>
+            @foreach($categories as $category)
+                <option
+                    @selected(old('category_id', request()->get('category_id')) == $category->id)
+                    value="{{ $category->id }}">
+                    {{ $category->title }}
+                </option>
+            @endforeach
+        </select>
+    </label>
+    <button class="p-2 rounded-md bg-indigo-100 ml-4">Отфильтровать</button>
+    <a href="{{ route('admin.posts.index') }}" class="p-2 rounded-md bg-gray-100 ml-4">Сбросить фильтры</a>
+</form>
+    </div>
+
+
     <a href="{{ route('admin.posts.create') }}">Создать статью</a>
+    <form method="POST" action="{{route('admin.posts.delete-all')}}">
+        @csrf
+        @method('DELETE')
+        <button>Удалить <b>ВСЁ</b></button>
+    </form>
+    <a href="{{route('admin.posts.index-deleted')}}">Удаленные статьи</a>
 
     <div class="">
         @foreach($posts as $post)
@@ -18,6 +47,8 @@
                 </form>
             </div>
         @endforeach
+        {{$posts->links()}}
     </div>
+
 @endsection
 

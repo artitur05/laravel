@@ -5,7 +5,7 @@
         @foreach($errors->all() as $error)
             <span class="text-red-300">{{ $error }} </span>
         @endforeach
-        <form method="post" action="{{ route('admin.posts.update', $post) }}">
+        <form method="post" action="{{ route('admin.posts.update', $post) }}" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div>
@@ -31,12 +31,24 @@
                 <label class="block font-medium text-sm text-gray-700" for="email">
                     ID Автора
                 </label>
+                <label for="name"></label>
                 <input
                     disabled
                     value="{{ old('user_id', $post->user_id) }}"
                     class="bg-gray-300 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full"
                     id="name" type="text" name="user_id" required="required" autofocus="autofocus">
             </div>
+
+            <div>
+                <label class="block font-medium text-sm text-gray-700" for="published_at">
+                    Изображение
+                </label>
+                <input
+                    value="{{  old('image'), $post->image }}"
+                    class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full"
+                    id="image" type="file" name="image"  autofocus="autofocus">
+            </div>
+
             <div>
                 <label class="block font-medium text-sm text-gray-700" for="published_at">
                     Дата публикации
@@ -46,6 +58,7 @@
                     class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm block mt-1 w-full"
                     id="published_at" type="text" name="published_at" required="required" autofocus="autofocus">
             </div>
+
 
             <div>
                 <label class="block font-medium text-sm text-gray-700" for="email">
