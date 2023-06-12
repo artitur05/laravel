@@ -29,3 +29,5 @@ class CategoryController extends Controller
         return new CategoryResource($category);
     }
 }
+$qwe = 'project.ru/api/categories/{id}';
+$qwe = 'project.ru/api/categories';

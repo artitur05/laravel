@@ -12,10 +12,16 @@
 <div class="menu" style="background-color: #a0c3fd; padding: 15px">
     <ul style="display: flex; list-style-type: none; justify-content: space-around">
         <li class="block font-medium text-sm text-gray-700">
-            <a href="posts/">Главная</a>
+            <a href="admin/posts/">Главная</a>
         </li>
         <li class="block font-medium text-sm text-gray-700">
-            <a href="categories">Все категории</a>
+            <a href="admin/categories/">Все категории</a>
+        </li>
+        <li class="block font-medium text-sm text-gray-700">
+            <a href="admin/users">Пользователи</a>
+        </li>
+        <li class="block font-medium text-sm text-gray-700">
+            <a href="">Разослать сообщение</a>
         </li>
     </ul>
 </div>

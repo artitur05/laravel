@@ -30,7 +30,14 @@ Route::middleware(['auth','role'])->group(function () {
         Route::post('/store', [CategoryController::class, 'store'])->name('store');
         Route::put('/update/{category}', [CategoryController::class, 'update'])->name('update');
     });
+
+    Route::name('admin.users.')->prefix('/admin/users')->group(function () {
+        Route::get('/', [\App\Http\Controllers\UserController::class, 'index'])->name('index');
+
+    });
 });
+
+
 
 
 
